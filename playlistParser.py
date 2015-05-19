@@ -11,5 +11,6 @@ print length
 ctr=0
 
 for songs in data['items']:
-	pprint(str(ctr) +" "+ str(songs["track"]["id"])+" "+ str(songs["track"]["popularity"]))
+	
+	print songs['track']['name'] + ": " + str(ctr) +" "+ str(songs["track"]["id"])+" "+ str(songs["track"]["popularity"])
 	ctr+=1
