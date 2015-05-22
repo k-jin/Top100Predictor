@@ -17,7 +17,9 @@ for songs in range (0, length):
 	artistLength = len(currentTrack['artists'])
 	for artists in range (0, artistLength):
 		tracks[currentTrack['name'].encode('utf-8')]['artists'].append(currentTrack['artists'][artists]['name'].encode('utf-8'))
-
+	#print tracks[currentTrack['name'].encode('utf-8')]['available_markets']
+	for i in range (0,len(tracks[currentTrack['name'].encode('utf-8')]['available_markets'])):
+		tracks[currentTrack['name'].encode('utf-8')]['available_markets'][i] = tracks[currentTrack['name'].encode('utf-8')]['available_markets'][i].encode('utf-8')
 # pprint(tracks)
 
 
