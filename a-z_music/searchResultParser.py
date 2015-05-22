@@ -24,19 +24,16 @@ for songs in range (0, length):
 
 
 # with open('names.csv', 'w') as csvfile:
-    # fieldnames = ['first_name', 'last_name']
-    # writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+#     fieldnames = ['first_name', 'last_name']
+#     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-    # writer.writeheader()
-    # writer.writerow({'first_name': 'Baked', 'last_name': 'Beans'})
-    # writer.writerow({'first_name': 'Lovely', 'last_name': 'Spam'})
-    # writer.writerow({'first_name': 'Wonderful', 'last_name': 'Spam'})
-with open(sys.argv[1][0:-5]+'.csv', 'wb') as csvfile:
+#     writer.writeheader()
+#     writer.writerow({'first_name': 'lol', 'last_name': 'mom'})
+#     writer.writerow({'first_name': 'hey', 'last_name': 'Spam'})
+#     writer.writerow({'first_name': 'Wonderful', 'last_name': 'Spam'})
+with open('songs.csv', 'ab') as csvfile:
 	fieldnames = ['song_name', 'artists', 'album', 'duration_ms', 'popularity', 'explicit', 'available_markets']
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-	writer.writeheader()
-
 	for key in tracks:
 		writer.writerow(tracks[key])
 
