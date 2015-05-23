@@ -36,4 +36,3 @@ with open('songs.csv', 'ab') as csvfile:
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 	for key in tracks:
 		writer.writerow(tracks[key])
-
