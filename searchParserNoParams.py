@@ -35,7 +35,7 @@ def make_music_csv():
 					tracks[currentTrack['name'].encode('utf-8')]['available_markets'][i] = tracks[currentTrack['name'].encode('utf-8')]['available_markets'][i].encode('utf-8')
 
 			music_dicts[music_file] = tracks
-			i+=1
+			
 
 
 	with open('test_songs.csv', 'ab') as csvfile:

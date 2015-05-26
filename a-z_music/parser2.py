@@ -49,8 +49,8 @@ for i in range(0,length):
 
 	#print tracks[currentTrack['name'].encode('utf-8')]
 
-
-with open('songs_2.csv', 'ab') as csvfile:
+csv_name = 'songs_' + str(sys.argv[1][0]) + '.csv'
+with open(csv_name, 'ab') as csvfile:
 	fieldnames = ['song_name', 'artists', 'album', 'duration_ms', 'popularity', 'explicit', 'available_markets','artist_id','artist_popularity','num_of_artists', 'num_artist_followers']
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 	for key in tracks:

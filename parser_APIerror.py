@@ -60,7 +60,7 @@ def make_music_csv():
 		
 
 
-	with open('test_songs2.csv', 'ab') as csvfile:
+	with open('finalish_song_list.csv', 'ab') as csvfile:
 		fieldnames = ['song_name', 'artists', 'album', 'duration_ms', 'popularity', 'explicit', 'available_markets','artist_id','artist_popularity','num_of_artists', 'num_artist_followers']
 		writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 		for mdict in music_dicts:
