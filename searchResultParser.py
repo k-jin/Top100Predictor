@@ -28,17 +28,10 @@ pprint(tracks)
 #     writer.writerow({'first_name': 'lol', 'last_name': 'mom'})
 #     writer.writerow({'first_name': 'hey', 'last_name': 'Spam'})
 #     writer.writerow({'first_name': 'Wonderful', 'last_name': 'Spam'})
-<<<<<<< HEAD:a-z_music/searchResultParser.py
-# with open('songs.csv', 'ab') as csvfile:
-# 	fieldnames = ['song_name', 'artists', 'album', 'duration_ms', 'popularity', 'explicit', 'available_markets']
-# 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-# 	for key in tracks:
-# 		writer.writerow(tracks[key])
 
-=======
 with open('songs.csv', 'ab') as csvfile:
 	fieldnames = ['song_name', 'artists', 'album', 'duration_ms', 'popularity', 'explicit', 'available_markets']
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 	for key in tracks:
 		writer.writerow(tracks[key])
->>>>>>> 151a586cd06b0cd99d9e82c4e96bc79828938c39:searchResultParser.py
+
