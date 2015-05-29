@@ -19,8 +19,7 @@ tracks = {}
 for i in range(0,len(dataItems)):
 
 	currentTrack = dataItems[i]
-	tracks[currentTrack['name'].encode('utf-8')] = {'song_name':currentTrack['name'].encode('utf-8'),'album':currentTrack['album']['name'].encode('utf-8'), 'duration_ms':currentTrack['duration_ms'], 'explicit':currentTrack['explicit'], 'song_id': currentTrack['id']}
-
+	tracks[currentTrack['name'].encode('utf-8')] = {'song_name':currentTrack['name'].encode('utf-8'),'album':currentTrack['album']['name'].encode('utf-8'), 'duration_ms':currentTrack['duration_ms'], 'explicit':currentTrack['explicit'], 'song_id': currentTrack['id'].encode['utf-8']}
 	
 	tracks[currentTrack['name'].encode('utf-8')]['artists'] = []
 
@@ -38,9 +37,7 @@ for i in range(0,len(dataItems)):
 
 	for artists in range (0, artistLength):
 		tracks[currentTrack['name'].encode('utf-8')]['artists'].append(currentTrack['artists'][artists]['name'].encode('utf-8'))
-	#print tracks[currentTrack['name'].encode('utf-8')]['available_markets']
-	for i in range (0,len(tracks[currentTrack['name'].encode('utf-8')]['available_markets'])):
-		tracks[currentTrack['name'].encode('utf-8')]['available_markets'][i] = tracks[currentTrack['name'].encode('utf-8')]['available_markets'][i].encode('utf-8')
+
 # pprint(tracks)
 
 print tracks['A Sky Full of Stars']
@@ -56,4 +53,7 @@ print tracks['A Sky Full of Stars']
 
 	#url = urlopen('https://api.spotify.com/v1/tracks/{id}').read()
 
+#JPGIYQEE2JFVVQFIZ
+
+# http://developer.echonest.com/api/v4/song/profile?api_key=JPGIYQEE2JFVVQFIZ&track_id=spotify:track:4toSP60xmDNCFuXly8ywNZ&bucket=id:spotify&bucket=audio_summary
 
