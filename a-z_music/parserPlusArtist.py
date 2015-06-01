@@ -1,5 +1,5 @@
 from urllib import urlopen
-import json, csv, sys
+import json, csv, sys, time 
 from pprint import pprint
 
 
@@ -20,8 +20,14 @@ ens2="&bucket=id:spotify&bucket=audio_summary"
 
 print "len of dataItems "+str(len(dataItems))
 
-#for i in range(0,len(dataItems)):
-for i in range(0,10):
+for i in range(0,len(dataItems)):
+#for i in range(0,10):
+	print "track index is is " + str(i)
+	if i%19==0:
+		print "i%19==0 and i is " +str(i) 
+		print "sleeping for 60 seconds....zzzzz"
+		time.sleep(60)
+
 	currentTrack = dataItems[i]
 	curTrack=currentTrack['name'].encode('utf-8')
 
@@ -58,6 +64,10 @@ for i in range(0,10):
 	for artists in range (0, artistLength):
 		tracks[currentTrack['name'].encode('utf-8')]['artists'].append(currentTrack['artists'][artists]['name'].encode('utf-8'))
 
+	print "ith or " +str(i) +" track is " + str(tracks[curTrack]['song_name'])
+
+
+
 
 	#print tracks[currentTrack['name'].encode('utf-8')]
 
@@ -70,7 +80,9 @@ csv_name = 'songs_' + str(sys.argv[1][0]) + '.csv'
 with open(csv_name, 'ab') as csvfile:
 	fieldnames = ['song_name', 'song_id', 'artists', 'album', 'duration_ms', 'explicit', 'artist_id','artist_popularity','num_of_artists', 'num_artist_followers','danceability','energy','loudness','speechiness','tempo','song_title_en']
  	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+ 	print "len of tracks is " +str(len(tracks))
  	for key in tracks:
+ 		print "writing " +str(tracks[key]['song_name'])
  		writer.writerow(tracks[key])
 
 
