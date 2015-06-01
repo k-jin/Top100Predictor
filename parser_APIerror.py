@@ -29,6 +29,7 @@ def make_music_csv():
 		with open("a-z_music/" + music_file) as data_file:
 			data = json.load(data_file)
 		
+		print "running on "+ str(music_file) 
 		dataItems  = data['tracks']['items']
 		length = len(dataItems)
 
@@ -42,12 +43,14 @@ def make_music_csv():
 			print "track index is is " + str(i)
 			if i%19==0:
 				print "i%19==0 and i is " +str(i) 
-				print "switching api keys"
+				print "switching api keys..."
+				time.sleep(10)
 				keyCounter = (keyCounter + 1)%3
 				currentKey=apiKeys[keyCounter]
+				print "new current api key is " + currentKey
 
 			if i==49:
-				print "sleeping for 60 secs ... zzz"
+				print "sleeping for 60 secs ... zzz. Current api key is " + currentKey
 				time.sleep(60)
 
 			currentTrack = dataItems[i]
