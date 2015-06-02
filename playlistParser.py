@@ -43,6 +43,8 @@ for songs in range(length):
 	enArtistURL = ens1 + currentKey + ens2 + str(currentTrackID) + ens3
 
 	responseInfo = json.loads(urlopen(enArtistURL).read())
+	if responseInfo['response']['status']['message']!="Success":
+			continue
 	
 	audioSummary = responseInfo['response']['songs'][0]['audio_summary']
 
