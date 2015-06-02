@@ -58,9 +58,11 @@ for songs in range(length):
 	for artists in range(artistLength):
 		tracks[currentTrackID]['artists'].append(currentTrack['artists'][artists]['name'].encode('utf-8'))
 
+	tracks[currentTrackID]['outcome']=1
+
 print len(tracks)
 with open('top100.csv', 'wb') as csvfile:
-	fieldnames = ['song_name', 'song_id', 'artists', 'album', 'duration_ms','explicit', 'artist_id','num_of_artists', 'danceability','energy','loudness','speechiness','tempo','song_title_en']
+	fieldnames = ['song_name', 'song_id', 'artists', 'album', 'duration_ms','explicit', 'artist_id','num_of_artists', 'danceability','energy','loudness','speechiness','tempo','song_title_en','outcome']
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 	writer.writeheader()
 	for key in tracks:

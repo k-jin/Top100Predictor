@@ -107,6 +107,7 @@ for music_file in file_list:
 			#tracks[currentTrack['name'].encode('utf-8')]['artists'].append(currentTrack['artists'][artists]['name'].encode('utf-8'))
 			tracks[curTrack]['artists'].append(currentTrack['artists'][artists]['name'].encode('utf-8'))
 
+		tracks[curTrack]['outcome']=0
 
 		print "ith or " +str(i) +" track is " + str(tracks[curTrack]['song_name']) 
 
@@ -117,7 +118,7 @@ for music_file in file_list:
 
 
 with open('finalish_song_list.csv', 'ab') as csvfile:
-	fieldnames = ['song_name', 'song_id', 'artists', 'album', 'duration_ms', 'explicit', 'artist_id','num_of_artists', 'danceability','energy','loudness','speechiness','tempo','song_title_en']
+	fieldnames = ['song_name', 'song_id', 'artists', 'album', 'duration_ms', 'explicit', 'artist_id','num_of_artists', 'danceability','energy','loudness','speechiness','tempo','song_title_en','outcome']
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 	print "writing ..."
 	writer.writeheader()
