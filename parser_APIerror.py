@@ -41,9 +41,10 @@ for music_file in file_list:
 
 
 
-	
+	#for each track in the json file
 	for i in range(0,length):
 
+		#time delay
 		print "track index is is " + str(i)
 		if i%19==0:
 			print "i%19==0 and i is " +str(i) 
@@ -57,13 +58,21 @@ for music_file in file_list:
 			print "sleeping for 60 secs ... zzz. Current api key is " + currentKey
 			time.sleep(60)
 
+		############################################
+		
+		#get current track	
 		currentTrack = dataItems[i]
 
-		#print "currentTrack is "
-		#pprint(currentTrack)
+		
 
 		#curTrack=currentTrack['name'].encode('utf-8')
-		curTrack=currentTrack['id'].encode('utf-8')
+		curTrack=currentTrack['id'].encode('utf-8') #track spotify id
+
+		enartist_url=ens1+currentKey+ens2+str(currentTrack['id'].encode('utf-8') )+ens3
+		response_info=json.loads(urlopen(enartist_url).read())
+
+		if response_info['response']['status']['message']!="Success":
+			continue
 
 		tracks[curTrack] = {'song_name':currentTrack['name'].encode('utf-8'),'album':currentTrack['album']['name'].encode('utf-8'), 'duration_ms':currentTrack['duration_ms'], 'explicit':currentTrack['explicit'], 'song_id': currentTrack['id'].encode('utf-8')}
 		
@@ -79,28 +88,23 @@ for music_file in file_list:
 		tracks[curTrack]['num_of_artists']=artistLength 
 		# tracks[curTrack]['num_artist_followers']=artist_info["followers"]["total"]
 
-		enartist_url=ens1+currentKey+ens2+str(currentTrack['id'].encode('utf-8') )+ens3
-
-		response_info=json.loads(urlopen(enartist_url).read())
-
-		#print "printing response_info from echonest "
-		#print response_info
-		#print response_info['response']['status']['message']
-
-		if response_info['response']['status']['message']!="Success":
-			continue
+		
 
 
 		audioShortcut = response_info['response']['songs'][0]['audio_summary']
-		#print audioShortcut
-
-		#audioDict['song_name'] = audioShortcut[5]
-		#audioDict['artist_name'] = audioShortcut[2]
+		
 		tracks[curTrack]['danceability'] = audioShortcut['danceability']
 		tracks[curTrack]['energy'] =  audioShortcut['energy']
 		tracks[curTrack]['loudness'] = audioShortcut['loudness']
 		tracks[curTrack]['speechiness'] = audioShortcut['speechiness']
 		tracks[curTrack]['tempo'] = audioShortcut['tempo']
+		tracks[curTrack]['acousticness']=audioShortcut['acousticness']
+		tracks[curTrack]['key']=audioShortcut['key']
+		tracks[curTrack]['liveness']=audioShortcut['liveness']
+		tracks[curTrack]['mode']=audioShortcut['mode']
+		tracks[curTrack]['time_signature']=audioShortcut['time_signature']
+		tracks[curTrack]['valence']=audioShortcut['valence']
+
 		tracks[curTrack]['song_title_en'] = response_info['response']['songs'][0]['title'].encode('utf-8')
 
 		for artists in range (0, artistLength):
@@ -118,7 +122,7 @@ for music_file in file_list:
 
 
 with open('finalish_song_list.csv', 'ab') as csvfile:
-	fieldnames = ['song_name', 'song_id', 'artists', 'album', 'duration_ms', 'explicit', 'artist_id','num_of_artists', 'danceability','energy','loudness','speechiness','tempo','song_title_en','outcome']
+	fieldnames = ['song_name', 'song_id', 'artists', 'album', 'duration_ms', 'explicit', 'artist_id','num_of_artists', 'danceability','energy','loudness','speechiness','tempo','acousticness','key','liveness','mode','time_signature','valence','song_title_en','outcome']
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 	print "writing ..."
 	writer.writeheader()
