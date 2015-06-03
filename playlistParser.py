@@ -74,7 +74,7 @@ for songs in range(length):
 	
 
 print len(tracks)
-with open('top100_testJ.csv', 'wb') as csvfile:
+with open('Top100_All.csv', 'wb') as csvfile:
 	fieldnames = ['song_name', 'song_id', 'artists', 'album', 'duration_ms', 'explicit', 'artist_id','num_of_artists', 'danceability','energy','loudness','speechiness','tempo','acousticness','key','liveness','mode','time_signature','valence','song_title_en','outcome']
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 	writer.writeheader()

@@ -121,11 +121,11 @@ for music_file in file_list:
 	
 
 
-with open('finalish_song_list.csv', 'ab') as csvfile:
+with open('NotTopAll.csv', 'ab') as csvfile:
 	fieldnames = ['song_name', 'song_id', 'artists', 'album', 'duration_ms', 'explicit', 'artist_id','num_of_artists', 'danceability','energy','loudness','speechiness','tempo','acousticness','key','liveness','mode','time_signature','valence','song_title_en','outcome']
 	writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 	print "writing ..."
-	writer.writeheader()
+	#writer.writeheader()
 	for mdict in music_dicts:
 		for key in music_dicts[mdict]:
 			writer.writerow(music_dicts[mdict][key])
