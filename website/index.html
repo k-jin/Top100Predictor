@@ -41,6 +41,7 @@
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
                 <li class="pure-menu-item"><a href="about.html" class="pure-menu-link">Final Report</a></li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact Us</a></li>
             </ul>
         </div>
     </div>
@@ -59,28 +60,30 @@
         <div class="content">
             <h2 class="content-subhead">Introduction</h2>
             <p>
-                Music has always had a profound influence on the way the world has shaped. It is often ordered and pleasant to listen to, and many modern cultures use music as a creative outlet to express themselves. Of course, some types of music and songs are more popular than others. There is no easy way of describing how popular a song could be when it is first created because its popularity is often due to how emotional or catchy the song is, but we were curious to see if we could use ML techniques to find any trend that could.
-                <br><br>
-                For this task, we used the Spotify and Echonest APIs in order to collect our data, which included the duration, explicitness, number of artists, danceability, energy, loudness, speechiness, and tempo of a track. We decided to use both Spotify and Echonest together because the two services partnered in recent years to create a seamless transition between their APIs, meaning we could use the Spotify IDs of all of the tracks to get information from Echonest.
-                <br><br>
-
-                We used Naive Bayes learners best accuracy for Top 100. Decision trees are terrible. Bayes Nets are okay. Nearest Neighbor are okay.
-                <br>
+                Music has always had a profound influence on the way the world has shaped. It is often ordered and pleasant to listen to, and people from many modern cultures use music as a creative outlet to express themselves. Of course, some types of music and songs are more popular than others. There is no easy way of describing how popular a song could be when it is first created because its popularity is often due to how emotional or catchy the song is. Nevertheless, we were curious to see if we could use ML techniques to find any trend that could.
+            </p>
+            <img class="pure-img" src="images/music_notes.jpg">
+            <p>
+                In order to simplify this lofty goal, we decided to specifically predict whether a song released in 2014 would make it into the Spotify Top 100 2014, a playlist created by Spotify that collects the 100 most popular songs from the service over the past year. For this task, we used the Spotify and Echonest APIs to collect our data, which included the duration, explicitness, song ID, number of artists, danceability, energy, loudness, speechiness, and tempo of a track. We decided to use both Spotify and Echonest together because the two services partnered in recent years to create a seamless transition between their APIs, meaning we could use the Spotify IDs of all of the tracks to get information from Echonest.
+            </p>
+            <p>
+                We trained and tested our data in Weka and measured our success by maximizing our f1-measure.
             </p>
             <p>
                 <center><a class="pure-button pure-button-primary" href="about.html">Click to view the final report</a></center>
             </p>
-            <br>
 
 
-            <div class="pure-g">
-                <div class="pure-u-1-2">
-                    <img class="pure-img-responsive" src="images/spotify-logo.jpg" alt="Spotify">
+            <p>
+                <div class="pure-g">
+                    <div class="pure-u-1-2">
+                        <img class="pure-img-responsive" src="images/spotify-logo.jpg" alt="Spotify">
+                    </div>
+                    <div class="pure-u-1-2">
+                        <img class="pure-img-responsive" src="images/echonest.jpg" alt="Echonest">
+                    </div>
                 </div>
-                <div class="pure-u-1-2">
-                    <img class="pure-img-responsive" src="images/echonest.jpg" alt="Echonest">
-                </div>
-            </div>
+            </p>
 
         </div>
     </div>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
 
-    <title>Top 100 Predictor</title>
+    <title>Top 100 Predictor &dash; Final Report</title>
 
     
 
@@ -41,6 +41,7 @@
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Home</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">Final Report</a></li>
+                <li class="pure-menu-item"><a href="contact.html" class="pure-menu-link">Contact Us</a></li>
             </ul>
         </div>
     </div>
@@ -62,42 +63,19 @@
             <h2 class="content-subhead">Our Approach</h2>
             <p>
                 We used both the Spotify and Echonest APIs to pull songs with various attributes that we believed are most indicative of potential song popularity. The attributes we focused on pulling from the Spotify API were duration, explicitness, number of artists, and the attributes from the Echonest API included danceability, energy, loudness, speechiness, and tempo.
-                <br>
-                <br>
-                Our dataset consists of 1,184 songs which include the songs pulled from the Top 100 tracks of 2014 playlist on spotify. To generate songs that were not hits, we searched on Spotify's API for songs that were released in 2014. 
-                <br>
-                <br>
-                - what types the attributes are (nominal, numeric, binary)
-                <br>
-                - selecting which genres and moods to use
             </p>
-
+            <p>
+                Our dataset consists of 1,248 songs which include the songs pulled from the Top 100 tracks of 2014 playlist on spotify. To collect songs that were not hits, we searched on Spotify's API for songs that were released in 2014. We used 70% of our data set to experiment with which classifiers worked best with our type of data, then trained on that 70% and tested on the remaining 30%.
+            </p>
 
             <h2 class="content-subhead">Problems We Encountered</h2>
             <p>
-                At first we believed that pulling from Spotify alone would give us the attributes needed to successfully predict the Top 100 songs of 2014. However, the information available on the Spotify API did not adequately describe any audio features we thought would be useful in our prediction. However, certain attributes such as artist popularity, explicitness, and duration of the song, among others, were ones we felt were necessary.<br>
-                Another problem we faced was that Spotify had a limit of pulling 50 songs per query, but we needed at least 1000 songs for our predictor to have a large enough training set. We worked around this by searching through the tracks by each letter of the alphabet (for example, any track that had the letter 'a' in its title), accumulating the results from these queries, and deleting duplicates. 
-                <br>
-                <br>
-                - difficulty combining data in json format from different sources into one csv file
-                <br>
-                - splitting the attributes that are arrays (mood, style) into binary attributes for each mood and style
+                At first we believed that pulling from Spotify alone would give us the attributes needed to successfully predict the Top 100 songs of 2014. However, the information available on the Spotify API did not adequately describe any audio features we thought would be useful in our prediction. However, certain attributes such as artist explicitness and duration of the song, among others, were ones Spotify provided that we felt were necessary. We solved this by incorporating these attributes from Spotify with the data we pulled from Echonest.
+            </p>
+            <p>
+                Another problem we faced was that Spotify had a limit of pulling 50 songs per query and Echonest a limit of 20 songs per minute, but we needed at least 1000 songs for our predictor to have a large enough training set. We worked around the Spotify issue by searching through the tracks by each letter of the alphabet (for example, any track that had the letter 'a' in its title), accumulating the results from these queries into jsons, and deleting duplicates. We fixed the Echonest issue by putting a timer in our code that stopped the code for one minute from running after 20 songs were pulled. This was quite a difficult problem to work around, as our code ran for 30+ minutes and we would not find bugs in our code instantly.
             </p>
 
-            <div class="pure-g">
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg" alt="Peyto Lake">
-                </div>
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg" alt="Train">
-                </div>
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm6.staticflickr.com/5456/9121446012_c1640e42d0.jpg" alt="T-Shirt Store">
-                </div>
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg" alt="Mountain">
-                </div>
-            </div>
 
         </div>
     </div>
