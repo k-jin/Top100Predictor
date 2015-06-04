@@ -11,8 +11,8 @@
 @attribute acousticness numeric
 @attribute key numeric
 @attribute liveness numeric
-@attribute mode {0,1}
-@attribute time_signature {1,3,4,5}
+@attribute mode numeric
+@attribute time_signature numeric
 @attribute valence numeric
 @attribute outcome {0,1}
 
