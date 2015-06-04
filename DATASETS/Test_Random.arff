@@ -1,4 +1,4 @@
-@relation Test_Random_noIDs
+@relation 'Test_Random_noIDs-weka.filters.unsupervised.attribute.NumericToNominal-R12,13,15'
 
 @attribute duration_ms numeric
 @attribute explicit {FALSE,TRUE}
@@ -11,10 +11,10 @@
 @attribute acousticness numeric
 @attribute key numeric
 @attribute liveness numeric
-@attribute mode numeric
-@attribute time_signature numeric
+@attribute mode {0,1}
+@attribute time_signature {3,4,5}
 @attribute valence numeric
-@attribute outcome numeric
+@attribute outcome {0,1}
 
 @data
 181115,FALSE,1,0.711385,0.841487,-3.803,0.032181,104.033,0.265016,0,0.267551,0,4,0.651762,0
