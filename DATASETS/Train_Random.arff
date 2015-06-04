@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @relation Train_Random
+=======
+@relation Train_Random-weka.filters.unsupervised.attribute.NumericToNominal-R16
+>>>>>>> abb59edc8abbbe33c78d09aa0efc4a107b6a20aa
 
 @attribute duration_ms numeric
 @attribute explicit {FALSE,TRUE}
