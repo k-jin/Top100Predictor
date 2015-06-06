@@ -48,7 +48,7 @@
 
     <div id="main">
         <div class="header">
-            <h1>About Our Project</h1>
+            <h1>Final Report</h1>
             <h2>Our task, our approach, the problems we encountered, and future work we could implement</h2>
             <h3><i>Ally Cody, Kevin Jin, Jaiveer Kothari, and Jeanette Pranin</i></h3>
             <h3><i>EECS 349 &dash; Machine Learning &dash; Northwestern University</i></h3>
@@ -65,12 +65,8 @@
                 We used both the Spotify and Echonest APIs to pull songs with various attributes that we believed are most indicative of potential song popularity. The attributes we focused on pulling from the Spotify API were duration, explicitness, number of artists, and the attributes from the Echonest API included danceability, energy, loudness, speechiness, and tempo.
             </p>
             <p>
-                Our dataset consists of 1,248 songs which include the songs pulled from the Top 100 tracks of 2014 playlist on spotify. To collect songs that were not hits, we searched on Spotify's API for songs that were released in 2014. We used 70% of our data set to experiment with which classifiers worked best with our type of data, then trained on that 70% and tested on the remaining 30%.
-            </p>
+                Our dataset consists of 1,248 songs which include the songs pulled from the Top 100 tracks of 2014 playlist on spotify. To collect songs that were not hits, we searched on Spotify's API for songs that were released in 2014. We used 70% of our data set to experiment with which classifiers worked best with our type of data, then trained on that 70% and tested on the remaining 30%. There are 873 instances in the training set.For our testing set, we put the remaining 30% of the misses and 30% of the hits and compiled them into the testing data set. We loaded the training set into Weka and ran different classifiers with 10 fold cross validation to find the classifiers and the settings that performed best on that training set. Additionally, we decided to use a cost matrix to weight the classification. We used a 2x2 cost matrix as this is a binary classification. We tweaked the parameters of each classifier to see what gave us the best results. We then trained on the training set with these three classifiers and tested on the test set.
 
-            <h2 class="content-subhead">Our Dataset</h2>
-            <p>
-                For our training set, we randomly chose 70% of the misses and 70% of our hits and compiled them into our training data set. There are 873 instances in the training set. For our testing set, we put the remaining 30% of the misses and 30% of the hits and compiled them into the testing data set. We loaded the training set into weka and ran different classifiers along with 10 fold cross validation. We did this to find which classifier worked best on our data. We decided to use a cost matrix to weight the classification. We used a 2x2 cost matrix as this is a binary classification. We tweaked the parameters of each classifier to see what gave us the best results. As our datasets had almost 10 times as many misses as there were hits, the percentage of correctly classified instances is not the best way to measure the success of our model. We decided that f measure would be a better metric. From the different classifiers that we tried we found that NaiveBayes worked the best. K-Star and J48 Decision tree also performed reasonably. Once we chose these 3 classifiers, then we tested our models. For each of the classifiers, we first trained on the training set and then tested on the our test set. The results we got are in the table below. 
             </p>
 
             <h2 class="content-subhead">Our Classifiers</h2>
@@ -106,11 +102,259 @@
             </p>
             
             <h2 class="content-subhead">Our Results</h2>
-
-            
+            <center> 
+                <table>
+                    <tr>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            Cost Matrix
+                        </td>
+                        <td>
+                            Weight Avg Precision
+                        </td>
+                        <td>
+                            Weight Avg Recall
+                        </td>
+                        <td>
+                            Weight Avg F1-Measure
+                        </td>
+                        <td>
+                            Accuracy
+                        </td>
+                        <td>
+                            Confusion Matrix
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Naive Bayes
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        0.0
+                                    </td>
+                                    <td>
+                                        1.0
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        2.0
+                                    </td>
+                                    <td>
+                                        0.0
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            0.886
+                        </td>
+                        <td>
+                            0.707
+                        </td>
+                        <td>
+                            0.772
+                        </td>
+                        <td>
+                            70.667%
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        Classified as Miss
+                                    </td>
+                                    <td>
+                                        Classified as Hits
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        248
+                                    </td>
+                                    <td>
+                                        97
+                                    </td>
+                                    <td>
+                                        Misses
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        13
+                                    </td>
+                                    <td>
+                                        17
+                                    </td>
+                                    <td>
+                                        Hits
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            K-Star with globalBlend = 2
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        0.0
+                                    </td>
+                                    <td>
+                                        1.0
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        3.0
+                                    </td>
+                                    <td>
+                                        0.0
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            0.847
+                        </td>
+                        <td>
+                            0.571
+                        </td>
+                        <td>
+                            0.668
+                        </td>
+                        <td>
+                            57.067%
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        Classified as Miss
+                                    </td>
+                                    <td>
+                                        Classified as Hits
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        203
+                                    </td>
+                                    <td>
+                                        142
+                                    </td>
+                                    <td>
+                                        Misses
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        19
+                                    </td>
+                                    <td>
+                                        11
+                                    </td>
+                                    <td>
+                                        Hits
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            J48 with confidenceFactor = 0.9, minNumObj = 5
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        0.0
+                                    </td>
+                                    <td>
+                                        1.0
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        4.0
+                                    </td>
+                                    <td>
+                                        0.0
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            0.882
+                        </td>
+                        <td>
+                            0.869
+                        </td>
+                        <td>
+                            0.875
+                        </td>
+                        <td>
+                            86.930%
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        Classified as Miss
+                                    </td>
+                                    <td>
+                                        Classified as Hits
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        317
+                                    </td>
+                                    <td>
+                                        28
+                                    </td>
+                                    <td>
+                                        Misses
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        21
+                                    </td>
+                                    <td>
+                                        9
+                                    </td>
+                                    <td>
+                                        Hits
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+            <center><img class="pure-img" src="images/confusion_matrix_graph.png"></center>
 
             <p>
                 We built models using cost-sensitive classifier settings in Naive Bayes, K-Star, and J48 on our training set and then analyzed their performance on our test set. The settings used for each classifier and the results are outlined in the table above. Although at first glance it appears that the J48 decision tree performed best with an accuracy of 86.93%, by looking at the confusion matrix it is clear that the higher accuracy of J48 is a result of classifying most songs as misses. While the overall accuracy is high, the accuracy of classifying the hits is low. K-Star, had the lowest accuracy, and although it classified more hits correctly than J48 did, it misclassified many more misses. Ultimately, we believe that Naive Bayes was the best performing classifier, because it classified the hits better than any of the other classifiers.
+            </p>
+            <p>
+                As our datasets had almost 10 times as many misses as there were hits, the percentage of correctly classified instances is not the best way to measure the success of our model. We decided that f1-measure would be a better metric. In our opinion, the classifier that best classified our data was Naive Bayes with an f1-measure of 0.772.
             </p>
 
             <h2 class="content-subhead">Problems We Encountered</h2>
