@@ -74,7 +74,7 @@
                 For our classifiers, we went through Weka and chose the three classifiers that performed best on the data.We chose Naive Bayes, K-Star with globalBlend = 2, and J48 with confidenceFactor = 0.9 and minNumObj = 5.
             </p>
             <p>
-                In order to determine the effectiveness of the classifiers, we need a baseline to compare with so we know whether the classifiers are working properly. The baseline we used is the F1 score of our data set where 50% were randomly classified as a Top 100 track and another 50% as not. The confusion matrix would look like:
+                In order to determine the effectiveness of the classifiers, we need a baseline to compare with so we know whether the classifiers are working properly. The baseline we used is the f1-measure of our data set where 50% were randomly classified as a Top 100 track and another 50% as not. The confusion matrix would look like:
             </p>
 
                 <center>
@@ -98,7 +98,7 @@
                 </center>
 
             <p>
-                The F1 score is the harmonic mean of the precision and recall. The precision is the ratio of correctly classified Top 100 to the total number of results classified as Top 100, so 50624. The recall is the ratio of correctly classified Top 100 to the total number of actual Top 100 so 50100. The F1 score is then calculated by taking the harmonic mean which yields 0.1381. This is the baseline that we will look to beat when testing our classifiers.
+                The f1-measure is the harmonic mean of the precision and recall. The precision is the ratio of correctly classified Top 100 to the total number of results classified as Top 100, so 50624. The recall is the ratio of correctly classified Top 100 to the total number of actual Top 100 so 50100. The f1-measure is then calculated by taking the harmonic mean which yields 0.1381. This is the baseline that we will look to beat when testing our classifiers.
             </p>
             
             <h2 class="content-subhead">Our Results</h2>
@@ -106,30 +106,31 @@
                 <table>
                     <tr>
                         <td>
-                            Name
+                            <i>Name</i>
                         </td>
                         <td>
-                            Cost Matrix
+                            <i>Cost Matrix</i>
                         </td>
                         <td>
-                            Weight Avg Precision
+                            <i>Weight Avg Precision</i>
                         </td>
                         <td>
-                            Weight Avg Recall
+                            <i>Weight Avg Recall</i>
                         </td>
                         <td>
-                            Weight Avg F1-Measure
+                            <i>Weight Avg f1-Measure</i>
                         </td>
                         <td>
-                            Accuracy
+                            <i>Accuracy</i>
                         </td>
                         <td>
-                            Confusion Matrix
+                            <i>Confusion Matrix</i>
                         </td>
                     </tr>
+                
                     <tr>
                         <td>
-                            Naive Bayes
+                            <b>Naive Bayes</b>
                         </td>
                         <td>
                             <table>
@@ -167,34 +168,34 @@
                             <table>
                                 <tr>
                                     <td>
-                                        Classified as Miss
                                     </td>
                                     <td>
-                                        Classified as Hits
+                                        <i>Classified as Hits</i>
                                     </td>
                                     <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        248
-                                    </td>
-                                    <td>
-                                        97
-                                    </td>
-                                    <td>
-                                        Misses
+                                        <i>Classified as Misses</i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        13
+                                        <b>Hits</b>
                                     </td>
                                     <td>
                                         17
                                     </td>
                                     <td>
-                                        Hits
+                                        13
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Misses</b>
+                                    </td>
+                                    <td>
+                                        97
+                                    </td>
+                                    <td>
+                                        248
                                     </td>
                                 </tr>
                             </table>
@@ -202,7 +203,7 @@
                     </tr>
                     <tr>
                         <td>
-                            K-Star with globalBlend = 2
+                            <b>K-Star with globalBlend = 2</b>
                         </td>
                         <td>
                             <table>
@@ -240,34 +241,34 @@
                             <table>
                                 <tr>
                                     <td>
-                                        Classified as Miss
                                     </td>
                                     <td>
-                                        Classified as Hits
+                                        <i>Classified as Hits</i>
                                     </td>
                                     <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        203
-                                    </td>
-                                    <td>
-                                        142
-                                    </td>
-                                    <td>
-                                        Misses
+                                        <i>Classified as Misses</i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        19
+                                        <b>Hits</b>
                                     </td>
                                     <td>
                                         11
                                     </td>
                                     <td>
-                                        Hits
+                                        19
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Misses</b>
+                                    </td>
+                                    <td>
+                                        142
+                                    </td>
+                                    <td>
+                                        203
                                     </td>
                                 </tr>
                             </table>
@@ -275,7 +276,7 @@
                     </tr>
                     <tr>
                         <td>
-                            J48 with confidenceFactor = 0.9, minNumObj = 5
+                            <b>J48 with confidenceFactor = 0.9, minNumObj = 5</b>
                         </td>
                         <td>
                             <table>
@@ -313,34 +314,34 @@
                             <table>
                                 <tr>
                                     <td>
-                                        Classified as Miss
                                     </td>
                                     <td>
-                                        Classified as Hits
+                                        <i>Classified as Hits</i>
                                     </td>
                                     <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        317
-                                    </td>
-                                    <td>
-                                        28
-                                    </td>
-                                    <td>
-                                        Misses
+                                        <i>Classified as Misses</i>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        21
+                                        <b>Hits</b>
                                     </td>
                                     <td>
                                         9
                                     </td>
                                     <td>
-                                        Hits
+                                        21
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Misses</b>
+                                    </td>
+                                    <td>
+                                        28
+                                    </td>
+                                    <td>
+                                        317
                                     </td>
                                 </tr>
                             </table>
