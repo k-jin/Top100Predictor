@@ -1,4 +1,4 @@
-@relation Train_Random_noID
+@relation Train_Random_noID-weka.filters.unsupervised.attribute.NumericToNominal-R15
 
 @attribute duration_ms numeric
 @attribute explicit {FALSE,TRUE}
@@ -14,7 +14,7 @@
 @attribute mode numeric
 @attribute time_signature numeric
 @attribute valence numeric
-@attribute outcome numeric
+@attribute outcome {0,1}
 
 @data
 148906,FALSE,1,0.557643,0.598905,-8.153,0.074212,138.097,0.379732,2,0.630904,1,4,0.056006,0
