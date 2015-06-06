@@ -208,6 +208,10 @@ small screens.
             margin-top: 0.6em;
         }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 
 /* -- Responsive Styles (Media Queries) ------------------------------------- */
 

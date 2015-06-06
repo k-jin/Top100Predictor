@@ -79,11 +79,11 @@
             </p>
 
             <p>
-                In order to train and test for our classifiers, we used a data set of 1,248 songs from the year 2014, 100 of which are Top 100 or hits and 1,148 of which are misses. We took 70% of this data set to train on and 30% to test on. The proportion of hits to misses in both the training and the test sets are equal. We then used Weka to train and test our data sets on different classifiers to see which worked best. 
+                In order to train and test for our classifiers, we used a data set of 1,248 songs from the year 2014, 100 of which are Top 100 or hits and 1,148 of which are misses. We took 70% of this data set on which to train and 30% on which to test. The proportion of hits to misses in both the training and the test sets are equal. We then used Weka to train and test our data sets on different classifiers to see which worked best. 
             </p>
 
             <p>
-                We chose Naive Bayes, K-Star, and J48 as our classifiers in Weka. While J48 gave the highest accuracy and f1-measure, Naive Bayes was best at correctly classifying whether songs were in the Top 100 or not. The most important feature was artist ID, where each artist in the Spotify database has its own unique ID. It is equivalent to the artist name. We believe that the reason why the artist ID was the most important attribute was because if an artist has multiple tracks in the Top 100, that artist would most likely be a popular artist and thus produce a more popular song.
+                We chose Naive Bayes, K-Star, and J48 as our classifiers in Weka. While J48 gave the highest accuracy and f1-measure, Naive Bayes was best at correctly classifying whether songs were in the Top 100 or not. The most important feature was artist ID, where each artist in the Spotify database has its own unique ID. It is equivalent to the artist name. We believe that the reason why the artist ID was the most important attribute was because if an artist has multiple tracks in the Top 100, that artist would most likely be a popular artist and more likely produce a more popular song.
             </p>
 
             <center><img class="pure-img" src="images/confusion_matrix_graph.png"></center>

@@ -57,7 +57,7 @@
         <div class="content">
             <h2 class="content-subhead">Our Task</h2>
             <p>
-                Our task is to determine whether a song in 2014 makes it into the top 100 songs based on data pulled from Spotify about the song and the artist. Predicting whether or not a song will be a hit is difficult, because song popularity often has to do with how the music makes the audience feel and how “catchy” it is, which is not easy to define.
+                Our task is to determine whether a song in 2014 will be in the Top 100 songs of the year. For clarity, we will refer to songs that were in the Top 100 as “hits” and songs that were not in the Top 100 as “misses.” Predicting whether or not a song will be a hit is difficult, because song popularity often has to do with how the music makes the audience feel and how “catchy” it is, which is not easy to define. A method for predicting whether a song will be a hit or not, could help artists improve their music or help music labels decide what artists to sign. 
             </p>
 
             <h2 class="content-subhead">Our Approach</h2>
@@ -68,6 +68,51 @@
                 Our dataset consists of 1,248 songs which include the songs pulled from the Top 100 tracks of 2014 playlist on spotify. To collect songs that were not hits, we searched on Spotify's API for songs that were released in 2014. We used 70% of our data set to experiment with which classifiers worked best with our type of data, then trained on that 70% and tested on the remaining 30%.
             </p>
 
+            <h2 class="content-subhead">Our Dataset</h2>
+            <p>
+                For our training set, we randomly chose 70% of the misses and 70% of our hits and compiled them into our training data set. There are 873 instances in the training set. For our testing set, we put the remaining 30% of the misses and 30% of the hits and compiled them into the testing data set. We loaded the training set into weka and ran different classifiers along with 10 fold cross validation. We did this to find which classifier worked best on our data. We decided to use a cost matrix to weight the classification. We used a 2x2 cost matrix as this is a binary classification. We tweaked the parameters of each classifier to see what gave us the best results. As our datasets had almost 10 times as many misses as there were hits, the percentage of correctly classified instances is not the best way to measure the success of our model. We decided that f measure would be a better metric. From the different classifiers that we tried we found that NaiveBayes worked the best. K-Star and J48 Decision tree also performed reasonably. Once we chose these 3 classifiers, then we tested our models. For each of the classifiers, we first trained on the training set and then tested on the our test set. The results we got are in the table below. 
+            </p>
+
+            <h2 class="content-subhead">Our Classifiers</h2>
+            <p>
+                For our classifiers, we went through Weka and chose the three classifiers that performed best on the data.We chose Naive Bayes, K-Star with globalBlend = 2, and J48 with confidenceFactor = 0.9 and minNumObj = 5.
+            </p>
+            <p>
+                In order to determine the effectiveness of the classifiers, we need a baseline to compare with so we know whether the classifiers are working properly. The baseline we used is the F1 score of our data set where 50% were randomly classified as a Top 100 track and another 50% as not. The confusion matrix would look like:
+            </p>
+
+                <center>
+                    <table style="width:50%">
+                      <tr>
+                        <td></td>
+                        <td><i>Classified as Hits</i></td>
+                        <td><i>Classified as Misses</i></td>       
+                      </tr>
+                      <tr>
+                        <td><b>Hits</b></td>
+                        <td>50</td>     
+                        <td>50</td>
+                      </tr>
+                      <tr>
+                        <td><b>Misses</b></td>
+                        <td>574</td>        
+                        <td>574</td>
+                      </tr>
+                    </table>
+                </center>
+
+            <p>
+                The F1 score is the harmonic mean of the precision and recall. The precision is the ratio of correctly classified Top 100 to the total number of results classified as Top 100, so 50624. The recall is the ratio of correctly classified Top 100 to the total number of actual Top 100 so 50100. The F1 score is then calculated by taking the harmonic mean which yields 0.1381. This is the baseline that we will look to beat when testing our classifiers.
+            </p>
+            
+            <h2 class="content-subhead">Our Results</h2>
+
+            
+
+            <p>
+                We built models using cost-sensitive classifier settings in Naive Bayes, K-Star, and J48 on our training set and then analyzed their performance on our test set. The settings used for each classifier and the results are outlined in the table above. Although at first glance it appears that the J48 decision tree performed best with an accuracy of 86.93%, by looking at the confusion matrix it is clear that the higher accuracy of J48 is a result of classifying most songs as misses. While the overall accuracy is high, the accuracy of classifying the hits is low. K-Star, had the lowest accuracy, and although it classified more hits correctly than J48 did, it misclassified many more misses. Ultimately, we believe that Naive Bayes was the best performing classifier, because it classified the hits better than any of the other classifiers.
+            </p>
+
             <h2 class="content-subhead">Problems We Encountered</h2>
             <p>
                 At first we believed that pulling from Spotify alone would give us the attributes needed to successfully predict the Top 100 songs of 2014. However, the information available on the Spotify API did not adequately describe any audio features we thought would be useful in our prediction. However, certain attributes such as artist explicitness and duration of the song, among others, were ones Spotify provided that we felt were necessary. We solved this by incorporating these attributes from Spotify with the data we pulled from Echonest.
@@ -75,7 +120,6 @@
             <p>
                 Another problem we faced was that Spotify had a limit of pulling 50 songs per query and Echonest a limit of 20 songs per minute, but we needed at least 1000 songs for our predictor to have a large enough training set. We worked around the Spotify issue by searching through the tracks by each letter of the alphabet (for example, any track that had the letter 'a' in its title), accumulating the results from these queries into jsons, and deleting duplicates. We fixed the Echonest issue by putting a timer in our code that stopped the code for one minute from running after 20 songs were pulled. This was quite a difficult problem to work around, as our code ran for 30+ minutes and we would not find bugs in our code instantly.
             </p>
-
 
         </div>
     </div>
