@@ -66,13 +66,6 @@
             <p>
                 In order to simplify this lofty goal, we decided to specifically predict whether a song released in 2014 would make it into the Spotify Top 100 2014, a playlist created by Spotify that collects the 100 most popular songs from the service over the past year. For this task, we used the Spotify and Echonest APIs to collect our data, which included the duration, explicitness, song ID, number of artists, danceability, energy, loudness, speechiness, and tempo of a track. We decided to use both Spotify and Echonest together because the two services partnered in recent years to create a seamless transition between their APIs, meaning we could use the Spotify IDs of all of the tracks to get information from Echonest.
             </p>
-            <p>
-                We trained and tested our data in Weka and measured our success by maximizing our f1-measure.
-            </p>
-            <p>
-                <center><a class="pure-button pure-button-primary" href="about.html">Click to view the final report</a></center>
-            </p>
-
 
             <p>
                 <div class="pure-g">
@@ -84,6 +77,26 @@
                     </div>
                 </div>
             </p>
+
+            <p>
+                In order to train and test for our classifiers, we used a data set of 1,248 songs from the year 2014, 100 of which are Top 100 or hits and 1,148 of which are misses. We took 70% of this data set to train on and 30% to test on. The proportion of hits to misses in both the training and the test sets are equal. We then used Weka to train and test our data sets on different classifiers to see which worked best. 
+            </p>
+
+            <p>
+                We chose Naive Bayes, K-Star, and J48 as our classifiers in Weka. While J48 gave the highest accuracy and f1-measure, Naive Bayes was best at correctly classifying whether songs were in the Top 100 or not. The most important feature was artist ID, where each artist in the Spotify database has its own unique ID. It is equivalent to the artist name. We believe that the reason why the artist ID was the most important attribute was because if an artist has multiple tracks in the Top 100, that artist would most likely be a popular artist and thus produce a more popular song.
+            </p>
+
+            <center><img class="pure-img" src="images/confusion_matrix_graph.png"></center>
+
+            <p>
+                Our final report, available below, goes deeper into our approach, the problems we encountered, and our results.
+            </p>
+
+            <p>
+                <center><a class="pure-button pure-button-primary" href="about.html">Click to view the final report</a></center>
+            </p>
+
+
 
         </div>
     </div>
